@@ -15,7 +15,7 @@
                 src="./public/images/achieve.png"
                 alt="Experience icon"
                 class="icon"
-              /></v-img>
+              ></v-img>
             <h3>Achievements</h3>
             <p>
               Graduated Senior highschool with honors in 2022-2023<br />
@@ -27,7 +27,7 @@
                 src="./public/images/educ.png"
                 alt="Experience icon"
                 class="icon"
-              /></v-img>
+              ></v-img>
             <h3>Education</h3>
             <p>
               South Mansfield College<br />
