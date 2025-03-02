@@ -6,7 +6,8 @@
   <ProjectsSection/> <br>
   <ContactSection/> <br>
   <FooterSection/> <br>
-          
+</template>
+ 
 <script>
 </script>
 
