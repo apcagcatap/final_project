@@ -4,12 +4,18 @@
     <h1 class="title">Myself</h1>
     <div class="section-container">
       <div class="section__pic-container">
-        <img :src="mediaImage" alt="Profile picture" class="about-pic" />
+        <v-img
+          src="./public/images/logo.png"
+          class="image"></v-img>
       </div>
       <div class="about-details-container">
         <div class="about-containers">
           <div class="details-container">
-            <img :src="achieveImage" alt="Experience icon" class="icon" />
+              <v-img
+                src="./public/images/achieve.png"
+                alt="Experience icon"
+                class="icon"
+              /></v-img>
             <h3>Achievements</h3>
             <p>
               Graduated Senior highschool with honors in 2022-2023<br />
@@ -17,7 +23,11 @@
             </p>
           </div>
           <div class="details-container">
-            <img :src="educImage" alt="Education icon" class="icon" />
+              <v-img
+                src="./public/images/educ.png"
+                alt="Experience icon"
+                class="icon"
+              /></v-img>
             <h3>Education</h3>
             <p>
               South Mansfield College<br />
@@ -41,19 +51,7 @@
 </template>
 
 <script>
-import mediaImg from '@/assets/images/logo.png';
-import achieveImg from '@/assets/images/achieve.png';
-import educImg from '@/assets/images/educ.png';
 
-export default {
-  data() {
-    return {
-      mediaImage: mediaImg,
-      achieveImage: achieveImg,
-      educImage: educImg,
-    };
-  },
-};
 </script>
 
 <style>

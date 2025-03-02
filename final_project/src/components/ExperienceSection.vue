@@ -34,11 +34,11 @@
 </template>
 
 <script>
-import img1 from '@/assets/images/cam.png';
-import img2 from '@/assets/images/vb.png';
-import img3 from '@/assets/images/read.png';
-import img4 from '@/assets/images/games.png';
-import img5 from '@/assets/images/crafts.png';
+import img1 from '@/public/images/cam.png';
+import img2 from '@/public/images/vb.png';
+import img3 from '@/public/images/read.png';
+import img4 from '@/public/images/games.png';
+import img5 from '@/public/images/crafts.png';
 
 export default {
   data() {
