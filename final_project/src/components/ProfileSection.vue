@@ -1,7 +1,6 @@
 <template>
   <section id="profile">
     <div class="section__pic-container">
-      <img src="./assets/images/logo.png" class="about-pic" />
     </div>
     <div class="section__text">
       <p class="section__text__p1">Hello, I'm</p>
@@ -9,18 +8,7 @@
       <p class="section__text__p2">An Aspiring Software Developer</p>
       <p class="section__text__p3">from BSCS - SS231</p>
       <div id="socials-container">
-        <img
-          src="./assets/images/logo.png"
-          alt="My LinkedIn profile"
-          class="icon"
-          @click="openLink('https://www.linkedin.com/in/antonne-miguelle-catap-4a5946288/')"
-        />
-        <img
-          src="./assets/images/logo.png"
-          alt="My Github profile"
-          class="icon"
-          @click="openLink('https://github.com/apcagcatap')"
-        />
+
       </div>
     </div>
   </section>
