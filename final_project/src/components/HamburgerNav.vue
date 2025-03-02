@@ -1,33 +1,28 @@
 <template>
-  <nav id="hamburger-nav">
-    <div class="logo">Antonne Miguelle Catap</div>
-    <div class="hamburger-menu" @click="toggleMenu">
-      <div class="hamburger-icon" :class="{ open: isMenuOpen }">
-        <span></span>
-        <span></span>
-        <span></span>
+    <nav id="hamburger-nav">
+      <div class="logo">Antonne Miguelle Catap</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Photo Gallery</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Comments</a></li>
+      
+        </div>
       </div>
-      <div class="menu-links" :class="{ open: isMenuOpen }">
-        <li><a href="#about" @click="toggleMenu">About</a></li>
-        <li><a href="#experience" @click="toggleMenu">Experience</a></li>
-        <li><a href="#projects" @click="toggleMenu">Photo Gallery</a></li>
-        <li><a href="#contact" @click="toggleMenu">Comments</a></li>
-      </div>
-    </div>
-  </nav>
+    </nav>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      isMenuOpen: false
-    }
-  },
-  methods: {
-    toggleMenu() {
-      this.isMenuOpen = !this.isMenuOpen;
-    }
+function toggleMenu() {
+    const menu = document.querySelector(".menu-links");
+    const icon = document.querySelector(".hamburger-icon");
+    menu.classList.toggle("open");
+    icon.classList.toggle("open");
   }
-}
 </script>
