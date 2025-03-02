@@ -37,11 +37,7 @@ export default {
   data() {
     return {
       hobbies: [
-        { title: 'Photography', description: 'Nature, landscapes, portraits, etc...', icon: 'cam.png' },
-        { title: 'Volleyball', description: 'Bench Warmer or Waterboy', icon: 'vb.png' },
-        { title: 'Reading', description: 'Manhwas and Mangas', icon: 'read.png' },
-        { title: 'Computer Games', description: 'ANY', icon: 'games.png' },
-        { title: 'Arts and Crafts', description: 'Handmade Flowers, Letters, etc...', icon: 'crafts.png' }
+
       ],
       moreInfo: [
         { title: 'IT Experience', description: 'I had no prior experience with IT' },
