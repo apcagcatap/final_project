@@ -5,7 +5,6 @@
     <AboutSection/>
     <ExperienceSection/>
     <PhotoGallery/>
-    <ContactSection/>
     <FooterComponent/>
   </div>
 </template>
