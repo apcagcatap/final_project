@@ -1,39 +1,27 @@
 <template>
-     <section id="profile">
-      <div class="section__pic-container">
-        <img src="skating.png" alt="ANTONNE MIGUELLE CATAP's profile picture" />
+  <section id="profile">
+    <div class="section__pic-container">
+      <img src="Screenshot 2025-01-10 193439.png" alt="ANTONNE MIGUELLE CATAP's profile picture" />
+    </div>
+    <div class="section__text">
+      <p class="section__text__p1">Hello, I'm</p>
+      <h1 class="title">Antonne Miguelle Catap</h1>
+      <p class="section__text__p2">An Aspiring Software Developer</p>
+      <p class="section__text__p3">from BSCS - SS231</p>
+      <div id="socials-container">
+        <img src="linkedin.png" alt="My LinkedIn profile" class="icon" @click="goToLink('https://www.linkedin.com/in/antonne-miguelle-catap-4a5946288/')">
+        <img src="github.png" alt="My Github profile" class="icon" @click="goToLink('https://github.com/apcagcatap')">
       </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Antonne Miguelle Catap</h1>
-        <p class="section__text__p2">An Aspiring Software Developer</p>
-        <p class="section__text__p3">from BSCS - SS231</p>
-        <div id="socials-container">
-          <img
-            src="linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/antonne-miguelle-catap-4a5946288/'">
-          <img
-            src="github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/apcagcatap'">
-        </div>
-      </div>
-    </section>
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
   methods: {
-    openLink(url) {
+    goToLink(url) {
       window.location.href = url;
-    },
-  },
-};
+    }
+  }
+}
 </script>
-
-<style scoped>
-/* Add styles if necessary */
-</style>

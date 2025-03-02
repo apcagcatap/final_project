@@ -7,10 +7,10 @@
         <div class="details-container">
           <h2 class="experience-sub-title">Hobbies and Interests</h2>
           <div class="article-container">
-            <article v-for="hobby in hobbies" :key="hobby.name">
-              <img :src="hobby.icon" class="icon" />
+            <article v-for="hobby in hobbies" :key="hobby.title">
+              <img :src="hobby.icon" alt="Experience icon" class="icon" />
               <div>
-                <h3>{{ hobby.name }}</h3>
+                <h3>{{ hobby.title }}</h3>
                 <p>{{ hobby.description }}</p>
               </div>
             </article>
@@ -37,18 +37,18 @@ export default {
   data() {
     return {
       hobbies: [
-        { name: "Photography", description: "Nature, landscapes, portraits, etc...", icon: "@/assets/images/cam.png" },
-        { name: "Volleyball", description: "Bench Warmer or Waterboy", icon: "@/assets/images/vb.png" },
-        { name: "Reading", description: "Manhwas and Mangas", icon: "@/assets/images/read.png" },
-        { name: "Computer Games", description: "ANY", icon: "@/assets/images/games.png" },
-        { name: "Arts and Crafts", description: "Handmade Flowers, Letters, etc...", icon: "@/assets/images/crafts.png" },
+        { title: 'Photography', description: 'Nature, landscapes, portraits, etc...', icon: '1.png' },
+        { title: 'Volleyball', description: 'Bench Warmer or Waterboy', icon: '2.png' },
+        { title: 'Reading', description: 'Manhwas and Mangas', icon: '3.png' },
+        { title: 'Computer Games', description: 'ANY', icon: '4.png' },
+        { title: 'Arts and Crafts', description: 'Handmade Flowers, Letters, etc...', icon: '5.png' }
       ],
       moreInfo: [
-        { title: "IT Experience", description: "I had no prior experience with IT" },
-        { title: "Goals", description: "My goal is to be rich enough that no one from my family would have to work." },
-        { title: "Dreams", description: "I dream of being able to afford to donate to everyone and have a big house for my family." },
-      ],
-    };
-  },
-};
+        { title: 'IT Experience', description: 'I had no prior experience with IT' },
+        { title: 'Goals', description: 'My Goal is To be rich enough that no one from my family would work.' },
+        { title: 'Dreams', description: 'There is one dream that I will never let go, that is to be able to afford to give to donate to everyone. (and to have a big house for my family)' }
+      ]
+    }
+  }
+}
 </script>
