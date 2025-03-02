@@ -15,14 +15,14 @@
           src="./public/images/linkedin.png"
             class="icon"
             @click="goToLinkedIn"
-          />
+          >
           ></v-img>
           <v-img
           src="./public/images/github.png"
             class="icon"
             @click="goToLinkedIn"
-          />
-          ></v-img>
+          >
+          </v-img>
         </div>
       </div>
     </section>
