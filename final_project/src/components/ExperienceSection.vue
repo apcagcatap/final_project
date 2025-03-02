@@ -37,11 +37,11 @@ export default {
   data() {
     return {
       hobbies: [
-        { name: "Photography", description: "Nature, landscapes, portraits, etc...", icon: "@/assets/images/1.png" },
-        { name: "Volleyball", description: "Bench Warmer or Waterboy", icon: "@/assets/images/2.png" },
-        { name: "Reading", description: "Manhwas and Mangas", icon: "@/assets/images/3.png" },
-        { name: "Computer Games", description: "ANY", icon: "@/assets/images/4.png" },
-        { name: "Arts and Crafts", description: "Handmade Flowers, Letters, etc...", icon: "@/assets/images/5.png" },
+        { name: "Photography", description: "Nature, landscapes, portraits, etc...", icon: "@/assets/images/cam.png" },
+        { name: "Volleyball", description: "Bench Warmer or Waterboy", icon: "@/assets/images/vb.png" },
+        { name: "Reading", description: "Manhwas and Mangas", icon: "@/assets/images/read.png" },
+        { name: "Computer Games", description: "ANY", icon: "@/assets/images/games.png" },
+        { name: "Arts and Crafts", description: "Handmade Flowers, Letters, etc...", icon: "@/assets/images/crafts.png" },
       ],
       moreInfo: [
         { title: "IT Experience", description: "I had no prior experience with IT" },
