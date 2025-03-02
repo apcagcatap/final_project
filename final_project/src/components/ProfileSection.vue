@@ -9,8 +9,7 @@
       <p class="section__text__p2">An Aspiring Software Developer</p>
       <p class="section__text__p3">from BSCS - SS231</p>
       <div id="socials-container">
-        <img src="@/assets/images/linkedin.png" class="icon" @click="goTo('linkedin')" />
-        <img src="@/assets/images/github.png" class="icon" @click="goTo('github')" />
+
       </div>
     </div>
   </section>
