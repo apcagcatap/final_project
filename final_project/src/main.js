@@ -1,10 +1,10 @@
-import { createApp } from 'vue'
+import Vue from "vue";
+import App from "./App.vue";
+import "./assets/css/mystyle.css";
+import "./assets/css/mediaqueries.css";
 
-import App from './App.vue'
-import PersonalProfile from './components/PersonalProfile.vue'
+Vue.config.productionTip = false;
 
-const app = createApp(App)
-
-app.component('personal-profile', PersonalProfile)
-
-app.mount('#app')
+new Vue({
+  render: (h) => h(App),
+}).$mount("#app");
