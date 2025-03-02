@@ -4,7 +4,7 @@
     <h1 class="title">Myself</h1>
     <div class="section-container">
       <div class="section__pic-container">
-        <img src="Media.png" alt="Profile picture" class="about-pic" />
+        <img src="logo.png" alt="Profile picture" class="about-pic" />
       </div>
       <div class="about-details-container">
         <div class="about-containers">

@@ -1,7 +1,7 @@
 <template>
   <section id="profile">
     <div class="section__pic-container">
-      <img src="Screenshot 2025-01-10 193439.png" alt="ANTONNE MIGUELLE CATAP's profile picture" />
+      <img src="skating.png" alt="ANTONNE MIGUELLE CATAP's profile picture" />
     </div>
     <div class="section__text">
       <p class="section__text__p1">Hello, I'm</p>
