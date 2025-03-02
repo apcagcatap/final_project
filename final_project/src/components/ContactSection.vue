@@ -1,5 +1,4 @@
 <template>
-    </section>
     <section id="contact">
       <p class="section__text__p1">Do You Have Any</p>
       <h1 class="title">Comments?</h1>
