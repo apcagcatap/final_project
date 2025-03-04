@@ -20,44 +20,44 @@
                 </div>
               </article>
               <article>
-                <v-img
-                  src="./public/images/vb.png"
+                <img
+                  src="/images/vb.png"
                   alt="Experience icon"
                   class="icon"
-                ></v-img>
+                >
                 <div>
                   <h3>Volleyball</h3>
                   <p>Bench Warmer or Waterboy</p>
                 </div>
               </article>
               <article>
-                <v-img
-                  src="./public/images/read.png"
+                <img
+                  src="/images/read.png"
                   alt="Experience icon"
                   class="icon"
-                ></v-img>
+                >
                 <div>
                   <h3>Reading</h3>
                   <p>Manhwas and Mangas</p>
                 </div>
               </article>
               <article>
-                <v-img
-                  src="./public/images/games.png"
+                <img
+                  src="/images/games.png"
                   alt="Experience icon"
                   class="icon"
-                ></v-img>
+                >
                 <div>
                   <h3>Computer Games</h3>
                   <p>ANY</p>
                 </div>
               </article>
               <article>
-                <v-img
-                  src="./public/images/crafts.png"
+                <img
+                  src="/images/crafts.png"
                   alt="Experience icon"
                   class="icon"
-                ></v-img>
+                >
                 <div>
                   <h3>Arts and Crafts</h3>
                   <p>Handmade Flowers, Letters, etc...</p>

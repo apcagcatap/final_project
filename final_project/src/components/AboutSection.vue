@@ -6,16 +6,15 @@
       <div class="section__pic-container">
         <img
           src="/images/logo.png"
-          class="image">
+          class="about-pic">
       </div>
       <div class="about-details-container">
         <div class="about-containers">
           <div class="details-container">
-              <v-img
-                src="./public/images/achieve.png"
-                alt="Experience icon"
-                class="icon"
-              ></v-img>
+            <img
+              src="/images/achieve.png"
+              alt="Experience icon"
+              class="icon">
             <h3>Achievements</h3>
             <p>
               Graduated Senior highschool with honors in 2022-2023<br />
@@ -23,11 +22,10 @@
             </p>
           </div>
           <div class="details-container">
-              <v-img
-                src="./public/images/educ.png"
-                alt="Experience icon"
-                class="icon"
-              ></v-img>
+              <img
+                src="/images/educ.png"
+                alt="Education icon"
+                class="icon">
             <h3>Education</h3>
             <p>
               South Mansfield College<br />
