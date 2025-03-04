@@ -2,7 +2,7 @@
      <section id="profile">
       <div class="section__pic-container">
                 <img
-          src="images/skating.png"
+          src="/images/skating.png"
         >
       </div>
       <div class="section__text">
