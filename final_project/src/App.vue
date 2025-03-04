@@ -1,6 +1,7 @@
 <template>
   <DesktopNav/> <br>
   <HamburgerNav/> <br>
+  <ProfileSection/> <br>
   <AboutSection/> <br>
   <ExperienceSection/> <br>
   <ProjectsSection/> <br>
