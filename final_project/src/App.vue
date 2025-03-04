@@ -1,4 +1,5 @@
 <template>
+  <Preloader/>
   <DesktopNav/> <br>
   <HamburgerNav/> <br>
   <ProfileSection/> <br>
