@@ -4,9 +4,9 @@
     <h1 class="title">Myself</h1>
     <div class="section-container">
       <div class="section__pic-container">
-        <v-img
-          src="./public/images/logo.png"
-          class="image"></v-img>
+        <img
+          src="/images/logo.png"
+          class="image">
       </div>
       <div class="about-details-container">
         <div class="about-containers">
