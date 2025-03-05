@@ -9,11 +9,11 @@
             <h2 class="experience-sub-title">Hobbies and Interests</h2>
             <div class="article-container">
               <article>
-                <v-img
-                  src="./public/images/cam.png"
+                <img
+                  src="/images/cam.png"
                   alt="Experience icon"
                   class="icon"
-                ></v-img>
+                >
                 <div>
                   <h3>Photography</h3>
                   <p>Nature, landscapes, portraits, etc...</p>
