@@ -1,274 +1,207 @@
 <template>
-  <div class="feedback-page">
-    <div class="feedback-container">
-      <div class="feedback-content">
-        <div class="feedback-form">
-          <h2>Hopefully you like this simple webpage of mine ^^</h2>
-          <h2>If you do not mind, I would like to know your name!</h2>
-          <form @submit.prevent="submitFeedback">
-            <label>
-              Name:
-              <input v-model="name" type="text" required />
-            </label>
-
-            <label>
-              Section:
-              <input v-model="section" type="text" required />
-            </label>
-
-            <label>
-              Message (Optional):
-              <textarea v-model="message"></textarea>
-            </label>
-
-            <button type="submit" :disabled="loading">
-              {{ loading ? "Submitting..." : "Submit" }}
-            </button>
-          </form>
-          <p v-if="successMessage" class="success-message">{{ successMessage }}</p>
-        </div>
-        <div class="feedback-image">
-          <img :src="imageUrl" alt="Feedback Illustration" />
-        </div>
-      </div>
-
-      <!-- Honorable Mentions Section -->
-      <div class="mentions-container">
-        <div class="mentions-title">Honorable Mentions :0</div>
-        <div class="mentions-subtitle">Thank you for the support!!!</div>
-        
-        <div v-if="review_form.length === 0" class="no-mentions">
-          No mentions yet. Be the first to leave your mark!
-        </div>
-
-        <div v-for="(mention, index) in review_form" :key="index" class="mention-card">
-          <div class="mention-header">
-            <div class="mention-name">{{ mention.name }}</div>
-            <div class="mention-section">{{ mention.section }}</div>
+      <section id="feedback" class="feedback-section">
+      <p class="section__text__p1">Do You Have Any</p>
+      <h1 class="title">Comments?</h1>
+      <div class="feedback-container">
+        <div class="feedback-columns">
+          <div class="feedback-input-column">
+            <h2>Give Us Your Feedback</h2>
+            <form @submit.prevent="submitFeedback" class="feedback-form">
+              <label for="name">Your Name:</label>
+              <input
+                type="text"
+                id="name"
+                v-model="feedback.name"
+                placeholder="Enter your name"
+                class="feedback-input"
+              />
+              <label for="feedback">Your Feedback:</label>
+              <textarea
+                id="feedback"
+                v-model="feedback.feedback"
+                placeholder="Enter your feedback"
+                class="feedback-textarea"
+              ></textarea>
+              <button type="submit" class="feedback-button">Submit Feedback</button>
+              <p v-if="successMessage" class="success-message">
+                {{ successMessage }}
+              </p>
+              <p v-if="errorMessage" class="error-message">
+                {{ errorMessage }}
+              </p>
+            </form>
           </div>
-          <div v-if="mention.message" class="mention-message">{{ mention.message }}</div>
+          <div class="feedback-output-column">
+            <h3>User Feedback</h3>
+            <div v-if="feedbacks.length" class="feedback-output">
+              <div v-for="item in feedbacks" :key="item.id" class="feedback-item">
+                <p><strong>{{ item.name }}:</strong> {{ item.feedback }}</p>
+              </div>
+            </div>
+            <p v-else>No feedback yet.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</template>
-
-<style scoped>
-/* Global Font */
-* {
-  font-family: 'Jersey 10', sans-serif;
-  box-sizing: border-box;
-}
-
-/* Background */
-.feedback-page {
-  margin: 0;
-  min-height: 100vh;
-  background: url('/images/grid.png') center/cover fixed no-repeat;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.feedback-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.feedback-content {
-  position: relative;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  min-height: 450px;
-  overflow: hidden;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: row;
-}
-
-.feedback-form {
-  width: 70%;
-  z-index: 2;
-}
-
-.feedback-form h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #340B3C;
-}
-
-.feedback-image {
-  position: absolute;
-  bottom: 0;
-  right: 1.5rem;
-  width: 25%;
-  z-index: 1;
-}
-
-.feedback-image img {
-  width: 90%;
-  height: auto;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-label {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-size: 2rem;
-  color: #6B2855;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 8px;
-  border: 2px solid #e6e6e6;
-  border-radius: 8px;
-  font-size: 1em;
-}
-
-textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-button {
-  width: 162px;
-  padding: 12px 24px;
-  background: #DB99C7;
-  color: #6B2855;
-  border: none;
-  border-radius: 10px;
-  font-size: 2em;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover:not(:disabled) {
-  background: #6B2855;
-  color: white;
-}
-
-button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-/* Honorable Mentions Section */
-.mentions-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  margin-top: 20px;
+    </section>
+  </template>
+  
+  <script>
+  import { ref, onMounted } from 'vue';
+  import { supabase } from '../lib/supabaseClient';
+  
+  export default {
+    data() {
+      return {
+        feedback: {
+          name: '',
+          feedback: '',
+        },
+        successMessage: '',
+        errorMessage: '',
+        feedbacks: [],
+      };
+    },
+    async mounted() {
+      await this.getFeedbacks();
+      this.subscribeToFeedbacks();
+    },
+    methods: {
+      async submitFeedback() {
+        try {
+          const { error } = await supabase.from('feedbackform').insert([this.feedback]);
+          if (error) {
+            throw error;
+          }
+          this.successMessage = 'Feedback submitted successfully!';
+          this.errorMessage = '';
+          this.feedback = { name: '', feedback: '' };
+          await this.getFeedbacks();
+        } catch (error) {
+          console.error('Error submitting feedback:', error, error.message, error.details);
+          this.errorMessage = 'Error submitting feedback. Please try again.';
+          this.successMessage = '';
+        }
+      },
+      async getFeedbacks() {
+        try {
+          const { data, error } = await supabase
+            .from('feedbackform')
+            .select('*')
+            .order('id', { ascending: false });
+          if (error) {
+            throw error;
+          }
+          this.feedbacks = data;
+        } catch (error) {
+          console.error('Error fetching feedbacks:', error, error.message, error.details);
+        }
+      },
+      subscribeToFeedbacks() {
+        supabase
+          .channel('any')
+          .on('postgres_changes', { event: '*', schema: 'public', table: 'feedbackform' }, async (payload) => {
+            await this.getFeedbacks();
+          })
+          .subscribe();
+      },
+    },
+  };
+  </script>
+  
+  <style scoped>
+  .feedback-section {
+    padding: 80px 20px;
+    background-color: white;
+    text-align: center;
+  }
+  
+  .feedback-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 100px;
+  }
+  
+  .feedback-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  
+  .feedback-input-column,
+  .feedback-output-column {
+    text-align: left;
+  }
+  
+  .feedback-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .feedback-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .feedback-input,
+  .feedback-textarea,
+  .feedback-button {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #2b2b2b;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .feedback-textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+  
+  .feedback-button {
+    background-color: #007bff;
+    color: rgb(222, 222, 222);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .feedback-button:hover {
+    background-color: #0a5bb1;
+  }
+  
+  .success-message,
+  .error-message {
+    margin-top: 10px;
+    font-weight: 500;
+  }
+  
+  .success-message {
+    color: green;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
+  .feedback-output {
+    margin-top: 20px;
+  }
+  
+.feedback-item {
+  background-color: white;
   padding: 15px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
-}
-
-.mentions-title {
-  font-size: 3rem;
-  font-weight: bold;
-  text-align: center;
-  color: #663366;
-}
-
-.mentions-subtitle {
-  font-size: 2rem;
-  font-weight: normal;
-  text-align: center;
-  color: #9b549b;
+  border-radius: 8px;
+  box-shadow: 0 5px 8px rgba(3, 3, 3, 0.1);
   margin-bottom: 15px;
+  outline: 2px solid black;
 }
-
-.no-mentions {
-  text-align: center;
-  font-size: 1.2em;
-  color: gray;
-}
-
-/* Individual Mention Cards */
-.mention-card {
-  width: 100%;
-  max-width: 100%;
-  padding: 12px;
-  background: white;
-  border-left: 6px solid #721884;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  word-wrap: break-word;
-}
-
-.mention-header {
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #663366;
-}
-
-.mention-name {
-  color: #9374C0;
-}
-
-.mention-section {
-  color: #7C4D9E;
-  font-style: italic;
-}
-
-.mention-message {
-  font-size: 1rem;
-  color: #333;
-  padding: 5px 0;
-  border-top: 1px solid #e6e6e6;
-  margin-top: 5px;
-  font-style: italic;
-}
-
-.success-message {
-  color: #97347a;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-top: 10px;
-}
-</style>
-
-<script setup>
-import { ref } from 'vue'
-
-const name = ref('')
-const section = ref('')
-const message = ref('')
-const loading = ref(false)
-const successMessage = ref('')
-const review_form = ref([])
-const imageUrl = '/images/feedback.png'
-
-const submitFeedback = () => {
-  loading.value = true
-
-  setTimeout(() => {
-    review_form.value.push({
-      name: name.value,
-      section: section.value,
-      message: message.value
-    })
-
-    successMessage.value = 'Thank you for your feedback!'
-    name.value = ''
-    section.value = ''
-    message.value = ''
-    loading.value = false
-  }, 1000)
-}
-</script>
+  
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .feedback-columns {
+      grid-template-columns: 1fr;
+    }
+  }
+  </style>

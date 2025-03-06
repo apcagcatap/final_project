@@ -10,7 +10,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 
-const words = ["Hello", "Bonjour", "Ciao", "Olà", "やあ", "Hallå", "Guten tag", "Hallo"];
+const words = ["• Hello", "• Bonjour", "• Ciao", "• Olà", "• やあ", "• Hallå", "• Guten tag", "• Hallo"];
 const index = ref(0);
 let timeoutId;
 let removeTimeout;
@@ -53,8 +53,9 @@ const scheduleNextWord = () => {
 }
 
 .preloader p {
-  font: 600 1.5rem 'Your Font 2';
+  font: 600 1.5rem "Poppins", sans-serif;
   margin-top: 1rem;
+  font-size: 50px;
 }
 
 .fade-enter-active,
